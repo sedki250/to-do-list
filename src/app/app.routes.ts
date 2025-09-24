@@ -9,12 +9,18 @@ import { Navbar } from './features/navbar/navbar';
 import { authGuardGuard } from './service/auth/auth-guard-guard';
 
 
+export function getPrerenderParams() {
+  return [{ id: '1' }, { id: '2' }, { id: '3' }];
+}
+
+// وبعدها في route:
+
 
 export const routes: Routes = [
     {path:'',component:Home,title:'Home'},
     {path:'addtask',component:AddTask,title:'AddTask'},
     {path:'home',component:Home,title:'home',canActivate:[authGuardGuard]},
-    {path:'task/:id',component:Task,title:'Task',canActivate:[authGuardGuard]},
+    { path: 'task/:id', component: Task, title: 'Task', canActivate: [authGuardGuard], data: { renderMode: 'client' } },
     {path:'task',component:Task,title:'Task',canActivate:[authGuardGuard]},
     {path:'signin',component:SignIn,title:'signIn'},
     {path:'signup',component:SignUp,title:'signUp'},
