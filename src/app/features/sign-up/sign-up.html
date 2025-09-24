@@ -1,0 +1,175 @@
+<section
+  class="bg-white shadow-md rounded-lg w-[90%] sm:w-[75%] md:w-[60%] lg:w-[40%] mx-auto my-6 p-6 sm:p-8 lg:p-10"
+>
+  <h1
+    class="text-center text-purple-600 text-2xl sm:text-3xl md:text-4xl font-bold my-4"
+  >
+    Register Now
+  </h1>
+
+  <form [formGroup]="registerForm" (ngSubmit)="submitForm()" class="space-y-5">
+
+    <!-- Name -->
+    <div class="relative">
+      <input
+        type="text"
+        id="name"
+        formControlName="name"
+        class="block w-full rounded-md border border-gray-300 px-3 pt-5 pb-2 text-sm sm:text-base text-gray-900 
+               focus:border-purple-500 focus:ring-purple-500 peer"
+        placeholder=" "
+      />
+      <label
+        for="name"
+        class="absolute text-sm text-gray-500 duration-300 transform -translate-y-2 scale-75 top-2.5 left-3 
+               peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-2 
+               peer-focus:scale-75 peer-focus:-translate-y-2 peer-focus:text-purple-500"
+      >
+        Name
+      </label>
+    </div>
+    @if (registerForm.get('name')?.errors && registerForm.get('name')?.touched) {
+      <div class="text-red-500 text-xs sm:text-sm">
+        @if (registerForm.get('name')?.getError('required')) {
+          <p>Name is required</p>
+        }
+        @if (registerForm.get('name')?.getError('minlength')) {
+          <p>Min length is 3 characters</p>
+        }
+        @if (registerForm.get('name')?.getError('maxlength')) {
+          <p>Max length is 20 characters</p>
+        }
+      </div>
+    }
+
+    <!-- Email -->
+    <div class="relative">
+      <input
+        type="email"
+        id="email"
+        formControlName="email"
+        class="block w-full rounded-md border border-gray-300 px-3 pt-5 pb-2 text-sm sm:text-base text-gray-900 
+               focus:border-purple-500 focus:ring-purple-500 peer"
+        placeholder=" "
+      />
+      <label
+        for="email"
+        class="absolute text-sm text-gray-500 duration-300 transform -translate-y-2 scale-75 top-2.5 left-3 
+               peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-2 
+               peer-focus:scale-75 peer-focus:-translate-y-2 peer-focus:text-purple-500"
+      >
+        Email
+      </label>
+    </div>
+    @if (registerForm.get('email')?.errors && registerForm.get('email')?.touched) {
+      <div class="text-red-500 text-xs sm:text-sm">
+        @if (registerForm.get('email')?.getError('required')) {
+          <p>Email is required</p>
+        }
+        @if (registerForm.get('email')?.getError('email')) {
+          <p>Invalid email format</p>
+        }
+      </div>
+    }
+
+    <!-- Password -->
+    <div class="relative">
+      <input
+        type="password"
+        id="password"
+        formControlName="password"
+        class="block w-full rounded-md border border-gray-300 px-3 pt-5 pb-2 text-sm sm:text-base text-gray-900 
+               focus:border-purple-500 focus:ring-purple-500 peer"
+        placeholder=" "
+      />
+      <label
+        for="password"
+        class="absolute text-sm text-gray-500 duration-300 transform -translate-y-2 scale-75 top-2.5 left-3 
+               peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-2 
+               peer-focus:scale-75 peer-focus:-translate-y-2 peer-focus:text-purple-500"
+      >
+        Password
+      </label>
+    </div>
+    @if (registerForm.get('password')?.errors && registerForm.get('password')?.touched) {
+      <div class="text-red-500 text-xs sm:text-sm">
+        @if (registerForm.get('password')?.getError('required')) {
+          <p>Password is required</p>
+        }
+        @if (registerForm.get('password')?.getError('pattern')) {
+          <p>Password must be at least 6 characters</p>
+        }
+      </div>
+    }
+
+    <!-- Confirm Password -->
+    <div class="relative">
+      <input
+        type="password"
+        id="rePassword"
+        formControlName="rePassword"
+        class="block w-full rounded-md border border-gray-300 px-3 pt-5 pb-2 text-sm sm:text-base text-gray-900 
+               focus:border-purple-500 focus:ring-purple-500 peer"
+        placeholder=" "
+      />
+      <label
+        for="rePassword"
+        class="absolute text-sm text-gray-500 duration-300 transform -translate-y-2 scale-75 top-2.5 left-3 
+               peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-2 
+               peer-focus:scale-75 peer-focus:-translate-y-2 peer-focus:text-purple-500"
+      >
+        Confirm Password
+      </label>
+    </div>
+    @if (registerForm.errors?.['mismatch'] && registerForm.get('rePassword')?.touched) {
+      <div class="text-red-500 text-xs sm:text-sm">
+        <p>Passwords do not match</p>
+      </div>
+    }
+
+    <!-- Phone -->
+    <div class="relative">
+      <input
+        type="text"
+        id="phone"
+        formControlName="phone"
+        class="block w-full rounded-md border border-gray-300 px-3 pt-5 pb-2 text-sm sm:text-base text-gray-900 
+               focus:border-purple-500 focus:ring-purple-500 peer"
+        placeholder=" "
+      />
+      <label
+        for="phone"
+        class="absolute text-sm text-gray-500 duration-300 transform -translate-y-2 scale-75 top-2.5 left-3 
+               peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-2 
+               peer-focus:scale-75 peer-focus:-translate-y-2 peer-focus:text-purple-500"
+      >
+        Phone
+      </label>
+    </div>
+    @if (registerForm.get('phone')?.errors && registerForm.get('phone')?.touched) {
+      <div class="text-red-500 text-xs sm:text-sm">
+        @if (registerForm.get('phone')?.getError('required')) {
+          <p>Phone is required</p>
+        }
+        @if (registerForm.get('phone')?.getError('pattern')) {
+          <p>Invalid phone number</p>
+        }
+      </div>
+    }
+
+    <!-- Error Message -->
+    <p class="text-red-500 text-center text-sm sm:text-base">{{errMsg}}</p>
+
+    <!-- Submit Button -->
+    <button
+      type="submit"
+      class="w-full px-4 py-2 sm:py-3 bg-purple-600 hover:bg-purple-700 rounded-md text-white font-semibold 
+             text-sm sm:text-base transition flex items-center justify-center"
+    >
+      Register
+      @if (isLoading) {
+        <i class="fas fa-spinner animate-spin ml-2"></i>
+      }
+    </button>
+  </form>
+</section>

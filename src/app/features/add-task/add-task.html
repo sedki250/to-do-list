@@ -1,0 +1,66 @@
+<div class="min-h-screen bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100 p-6">
+  <!-- Quote Section -->
+  <div
+    class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white p-8 rounded-2xl shadow-lg text-center"
+  >
+    <p class="text-2xl md:text-3xl font-semibold italic">
+      "Add tasks today to achieve tomorrow ✨"
+    </p>
+    <span class="block mt-4 text-sm md:text-base font-bold">— Task Manager</span>
+  </div>
+
+  <!-- Add Task Form -->
+  <div class="bg-white mt-8 p-6 rounded-2xl shadow">
+    <h2 class="text-xl font-bold mb-6 text-gray-700 text-center">Add A New Task</h2>
+
+    <!-- Title -->
+    <label class="block mb-2 text-sm font-medium text-gray-900">Task Title</label>
+    <div class="flex mb-4">
+      <input
+        #tasktitle
+        type="text"
+        class="rounded-lg bg-gray-50 border text-gray-900 focus:ring-indigo-500 focus:border-indigo-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-3 bg-gray-100"
+        placeholder="Write the task title here..."
+      />
+    </div>
+
+    <!-- Description -->
+    <label class="block mb-2 text-sm font-medium text-gray-900">Description</label>
+    <textarea
+      #taskdesc
+      rows="4"
+      class="block p-3 w-full text-sm text-gray-900 bg-gray-100 rounded-lg border border-gray-300 focus:ring-indigo-500 focus:border-indigo-500"
+      placeholder="Write your thoughts here..."
+    ></textarea>
+
+    <!-- Buttons -->
+    <div class="flex justify-between mt-6">
+      <button
+        class="px-6 py-2 bg-indigo-600 text-white font-bold rounded-lg hover:bg-indigo-800 transition duration-200"
+        (click)="saveTask(tasktitle, taskdesc)"
+      >
+        Save
+      </button>
+      <a
+        routerLink="/"
+        class="px-6 py-2 bg-red-500 text-white font-bold rounded-lg hover:bg-red-700 transition duration-200"
+      >
+        Cancel
+      </a>
+    </div>
+  </div>
+  <footer
+  class="mt-22 py-6 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white text-center rounded-t-2xl shadow-lg opacity-0 animate-fadeIn"
+>
+  <p class="text-sm md:text-base">
+    Built with <span class="font-bold">Angular</span> ⚡ by
+    <span class="italic font-semibold">Marwan Fathi</span>
+  </p>
+  <p class="text-xs mt-2 text-gray-200">
+    © {{ currentYear }} All rights reserved.
+  </p>
+</footer>
+</div>
+
+
+

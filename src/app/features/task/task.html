@@ -1,0 +1,56 @@
+<div class="min-h-screen bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100 p-6 flex flex-col justify-between">
+
+  <!-- Task Details Card -->
+  <div class="bg-white mt-8 p-6 rounded-2xl shadow flex-1">
+
+    <div *ngIf="!taskId">
+      <p class="text-red-600 font-semibold text-center py-4">❌ There is no task id</p>
+    </div>
+
+    <div *ngIf="taskId">
+      <h2 class="text-3xl text-center font-bold mb-6 text-indigo-700">
+        Details of {{task.title}}
+      </h2>
+
+      <label for="small-input" class="block mb-2 text-sm font-medium text-gray-700">Task Name</label>
+      <input
+        type="text"
+        [(ngModel)]="task.title"
+        id="small-input"
+        placeholder="Task name"
+        class="block w-full p-3 mb-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-sm focus:ring-indigo-500 focus:border-indigo-500"
+      />
+
+      <label class="block mb-2 text-sm font-medium text-gray-700">Description</label>
+      <textarea
+        [(ngModel)]="task.desc"
+        rows="4"
+        class="block p-3 w-full text-sm text-gray-900 bg-gray-100 rounded-lg border border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 mb-6"
+        placeholder="Write your thoughts here..."
+      ></textarea>
+      <button class="w-full"><a (click)="updateTask()" class="block px-4 py-2 bg-green-700 hover:bg-green-900 text-white rounded">Update</a></button>
+      <div class="flex justify-between my-3">
+           
+           <button ><a routerLink="/" class="block px-4 py-2 bg-red-700 hover:bg-red-900 text-white rounded">Cancel</a></button>
+         
+         <button><a (click)="deleteTask()" class="block px-4 py-2 bg-blue-700 hover:bg-blue-900 text-white rounded">Delete</a></button>
+         
+    </div>
+    </div>
+  </div>
+  
+  <!-- Footer -->
+  <footer
+    class="mt-23 py-6 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white text-center rounded-t-2xl shadow-lg opacity-0 animate-fadeIn"
+  >
+    <p class="text-sm md:text-base">
+      Built with <span class="font-bold">Angular</span> ⚡ by
+      <span class="italic font-semibold">Marwan Fathi</span>
+    </p>
+    <p class="text-xs mt-2 text-gray-200">
+      © {{ currentYear }} All rights reserved.
+    </p>
+  </footer>
+</div>
+
+
